@@ -1,0 +1,17 @@
+import re
+
+def valid_name(name):
+	pattern=r'^[A-Z][a-z]+ [A-Z][a-z]+$'
+	return bool(re.match(pattern,name))
+
+user_name="Jhon Doe"
+
+if valid_name(user_name):
+	print("valid name")
+else:
+	print("Invalid name")
+
+En este caso validaremos el nombre considerando que debe tener al menos dos palabras con un espacio de separación, una letra mayúscula al inicio de la palabra y al menos una letra minúscula. en Python podemos emplear el modulo re.match para buscar el patrón en el inicio y decirnos si es valido o no empleando una condicional if.
+
+Issue The name is validated just looking for a space in full name. It could allow some extreme cases like just one name without lastname, just space as a name, just one letter Word, and also it is not asking for an uppercase letter in the begining of the Word.
+Solution: employing a function we can check if the constraints are fulfilled before approving the name. we can use in Python   

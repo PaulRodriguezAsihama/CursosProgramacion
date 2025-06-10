@@ -1,0 +1,56 @@
+import re
+def name_validation(name):
+	pattern=f'^[A-Z][a-z]+ [A-Z][a-z]+$'
+	test=bool(re.match(pattern,name))
+	if test:
+		return print("name valid")
+	else:
+		return print("name invalid")
+
+#test
+user_name="Jhon Doe"
+valid_name(user_name)
+
+def email_validation(email):
+	pattern=r'^[\w\.-]+@[\w\.-]+\.\w+$'
+	test=bool(re.match(pattern,email))
+	if test:
+		return print("valid email")
+	else:
+		return print("invalid email")
+#test
+email="Jhon.Doe@gmail.com"
+email_validation(email)
+
+
+import string
+def password_validation(password,num=1,special_character=1,uppercase=1,lowercase=1):
+	if len(password)<8:
+		return print("password must be at least 8 characters")
+	constraints=[(num,r'\d'),(special_character,fr'[{string.punctuation}]'),(uppercase,r'[A-Z]'),(lowercase,r'[a-z]')]
+	if all( constraint<= len(re.findall(constraints,password) for constraint, pattern in constraints):
+		return print("valid password")
+	else:
+		return print("invalid password")
+
+#test
+password="Out123#"
+password_validation(password)
+
+
+	if all( constraint <= len(re.findall(pattern, password)) for constrain,pattern in constraints):
+
+from datetime import datetime
+def age_validation(birth_date, min_age=18):
+	date_of_birth=datetime.strptine(birth_date,'%Y-%m-%d')
+	today=datetime.today()
+	age=date_of_birth.year-today.year-((today.month,today.day)<(birth_date.month, birth_date.day))
+	if age>=min_age:
+		return print("is older than 18")
+	else:
+		return print("is younger than 18")
+#test
+birth_date="2005-12-15"
+age_validation(birth_date)
+	
+	

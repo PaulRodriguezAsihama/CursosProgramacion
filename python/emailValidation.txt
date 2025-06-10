@@ -1,0 +1,14 @@
+import re
+
+def email_validation(email):
+	pattern=r'^[\w\.-]+@[\w\.-]+\.\w+$'
+	return bool(re.match(pattern,email))
+
+email="juan.perez@yahoo.com"
+
+if email_validation(email):
+	print("valid email")
+else:
+	print("invalid email")
+
+Para validar el email debemos asegurarnos que tenga tres componentes importantes: texto y caracteres especiales antes del símbolo arroba, el símbolo @, nombre del dominio con caracteres especiales, el punto que separe la extensión del dominio y la extensión en si. Usamo spara ello una función de validación que siga un patron determinado y use re.match para comprobar que se encuentra en el email las restricciones y darnos mediante una condicional si el email es valido o no.  

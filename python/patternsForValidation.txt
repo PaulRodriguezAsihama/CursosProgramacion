@@ -1,0 +1,28 @@
+import re
+import string
+
+name validation pattern:
+pattern = r'^[A-Z][a-z]+ [A-Z][a-z]+$'
+return bool(re.match(pattern,name))
+
+email validation pattern:
+pattern = r'^[\w\.-]+@[\w\.-]+\.\w+$'
+return bool(re.match(pattern,email))
+
+password validation pattern:
+constraints=[(nums,r'\d'),(special_char,fr'[{string.punctuation}]'),(uppercase,r'[A-Z]'),(lowercase,r'[a-z])]
+
+if all(constraint<=len(re.findall(pattern,password)) for constraint, pattern in constraints):
+
+
+
+date validation pattern:
+from datetime import datetime
+
+today=datetime.today()
+date1=datetime.strptime(birth_date,'%Y-%m-%d')
+
+age= today.year-date1.year-((today.month,today.day)<(birth_date.month,birth.day))
+
+if age >=18:
+return True
